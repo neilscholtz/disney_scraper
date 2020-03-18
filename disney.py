@@ -163,4 +163,4 @@ if __name__ == "__main__":
     disney = Disney(username, password)
     disney.login()
     disney.run_scraper('data.csv')
-    disney.clean_save_json
+    disney.clean_save_json()
