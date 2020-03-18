@@ -138,7 +138,7 @@ class Disney():
     def clean_save_json(self):
         # data cleaning & save to JSON file
         with open(self.data_file) as f:
-            list_data = [line.split('\t') for line in f.read().split('\n') if line != '']
+            list_data = set([line.split('\t') for line in f.read().split('\n') if line != ''])
 
         sections = {}
         for item in list_data:
