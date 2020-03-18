@@ -11,15 +11,15 @@ import json
 
 class Disney():
     def __init__(self, username, password):
-        options = Options()
+        self.options = Options()
 ##        options.add_argument("--headless")
-        options.add_argument("window-size=1980,1080")
+        self.options.add_argument("window-size=1980,1080")
         current_dir = os.getcwd()#.replace('\\','/')
         self.download_folder = '{}\\attendance2\\'.format(current_dir)
         prefs = {'download.default_directory' : self.download_folder}
-        options.add_experimental_option('prefs', prefs)
-        options.add_argument("--proxy-server='direct://'")
-        options.add_argument("--proxy-bypass-list=*")
+        self.options.add_experimental_option('prefs', prefs)
+        self.options.add_argument("--proxy-server='direct://'")
+        self.options.add_argument("--proxy-bypass-list=*")
         self.username = username
         self.password = password
         self.data_file = 'data.csv'
@@ -162,5 +162,5 @@ if __name__ == "__main__":
     password = ### <= Enter password here
     disney = Disney(username, password)
     disney.login()
-    disney.run_scraper('data.csv')
+    disney.run_scraper()
     disney.clean_save_json()
