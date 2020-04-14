@@ -158,8 +158,11 @@ class Disney():
         print ('Data saved to file: ' + json_save_file)
 
 if __name__ == "__main__":
-    username = ### <= Enter username here
-    password = ### <= Enter password here
+    config = configparser.ConfigParser()
+    config.read('dl.cfg')
+    
+    username = config['DISNEY']['USERNAME']
+    password = config['DISNEY']['PASSWORD']
     disney = Disney(username, password)
     disney.login()
     disney.run_scraper()
